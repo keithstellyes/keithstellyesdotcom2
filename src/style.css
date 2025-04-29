@@ -1,0 +1,7 @@
+.svgButton {
+    border:1px solid black;
+    max-width: 15em;
+    text-align: center;
+    padding: 1em;
+    margin: 1em;
+}
