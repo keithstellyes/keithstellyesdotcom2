@@ -3,9 +3,9 @@
 <head>
     <style>
         .svgButtonCollection > div {
-    border:1px solid black;
-    width: 5cm;
-    height: 7.5cm;
+        border:1px solid black;
+    width: var(--btn-width);
+    height: 300px;
 }
 
 .svgButtonCollection > div > button {
@@ -14,8 +14,10 @@
 }
 
 .svgButtonCollection {
+--btn-width: 250px;
+
     display: grid;
-    grid-template-columns: repeat(auto-fill, 6cm);
+    grid-template-columns: repeat(auto-fill, calc(var(--btn-width) + 5px));
     width: 90%;
 }
 
