@@ -1,49 +1,71 @@
+<!DOCTYPE html>
+<html>
 <head>
     <style>
-        .svgButton {
+        .svgButtonCollection > div {
     border:1px solid black;
-    max-width: 15em;
-    text-align: center;
-    padding: 1em;
-    margin: 1em;
+    width: 15em;
+    height: 20em;
+}
+
+.svgButtonCollection > div > button {
+    width: 100%;
+    height: 100%;
+}
+
+.svgButtonCollection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 17em);
+    width: 90%;
 }
     </style>
 </head>
+
 <body>
     <script>
         window.SVG = {"seedling": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 512 512\"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d=\"M512 32c0 113.6-84.6 207.5-194.2 222c-7.1-53.4-30.6-101.6-65.3-139.3C290.8 46.3 364 0 448 0l32 0c17.7 0 32 14.3 32 32zM0 96C0 78.3 14.3 64 32 64l32 0c123.7 0 224 100.3 224 224l0 32 0 160c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-160C100.3 320 0 219.7 0 96z\"/></svg>\n", "computer": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 512\"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d=\"M384 96l0 224L64 320 64 96l320 0zM64 32C28.7 32 0 60.7 0 96L0 320c0 35.3 28.7 64 64 64l117.3 0-10.7 32L96 416c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-74.7 0-10.7-32L384 384c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L64 32zm464 0c-26.5 0-48 21.5-48 48l0 352c0 26.5 21.5 48 48 48l64 0c26.5 0 48-21.5 48-48l0-352c0-26.5-21.5-48-48-48l-64 0zm16 64l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z\"/></svg>\n"}
     </script>
     <script>
-        const INTRO_HTML = `<h1>Keith Stellyes' Page</h1>
+        function svgButton(svgName, text) {
+return `
+    <div>
+    <button onclick="alert('TODO: respond to ${text}')">
+        ${window.SVG[svgName]}
+        ${text}
+    </button>
+    </div>`
+}
+
+const INTRO_HTML = `<h1>Keith Stellyes' Page</h1>
 <p>This page as of May 6, 2025 is under construction, mind the dust :)</p>
 
-</hr>
-<div class="svgButton">
-${window.SVG.computer}
-<p>Technical interests!</p>
+<div class="svgButtonCollection">
+    ${svgButton("computer", "Technical interests!")}
+    ${svgButton("seedling", "How are my plants doing?")}
 </div>
-<div class="svgButton">
-${window.SVG.seedling}
-<p>How are my plants doing?!</p>
-</div>
-</hr>
 `;
 
-function onIndex() {
-    const contentElement = document.getElementById("content");
-    contentElement.innerHTML = INTRO_HTML;
-
-    const svgels = document.getElementsByTagName("svg");
-    for(const el of svgels) {
-        el.setAttribute("width", "100px");
-        el.setAttribute("height", "100px");
+function windowOnLoad() {
+    if (window.location.pathname.endsWith('index.html')) {
+        loadIndex();
+    } else {
+        console.log("Failed to determine page. Falling back to index.");
+        loadIndex();
     }
 }
 
+function loadIndex() {
+    console.log('Loading index page.');
+    const contentElement = document.getElementById("content");
+    contentElement.innerHTML = INTRO_HTML;
+}
+
 window.onload = () => {
-    onIndex();
+    console.log('path:', window.location.pathname);
+    windowOnLoad();
 }
     </script>
 
     <div id="content"></div>
 </body>
+</html>
