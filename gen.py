@@ -12,4 +12,8 @@ GLOBALS = f'window.SVG = {json.dumps(SVGS)}'
 
 template = env.get_template('index.jinja')
 
-print(template.render(GLOBALS=GLOBALS))
+html = template.render(GLOBALS=GLOBALS)
+
+for fn in ('index.html', 'plants.html'):
+    with open(fn, 'w') as f:
+        f.write(html)

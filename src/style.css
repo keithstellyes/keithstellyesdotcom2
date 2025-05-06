@@ -1,7 +1,7 @@
 .svgButtonCollection > div {
     border:1px solid black;
-    width: 15em;
-    height: 20em;
+    width: 5cm;
+    height: 7.5cm;
 }
 
 .svgButtonCollection > div > button {
@@ -11,7 +11,7 @@
 
 .svgButtonCollection {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 17em);
+    grid-template-columns: repeat(auto-fill, 6cm);
     width: 90%;
 }
 

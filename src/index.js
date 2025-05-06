@@ -62,10 +62,10 @@ function windowOnLoad(path) {
     }
 
     if (window.location.pathname.endsWith('index.html')) {
-        loadPage("Index", false);
+        loadPage("Index");
     } else {
         console.log("Failed to determine page. Falling back to index.");
-        loadPage("Index", false);
+        loadPage("Index");
     }
 }
 
