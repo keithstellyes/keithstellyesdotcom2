@@ -25,6 +25,15 @@ PAGES = {
     }
 };
 
+window.addEventListener('popstate', (event) =>  {
+    const path = event.target.location.pathname;
+    for(const page of Object.keys(PAGES)) {
+        if(PAGES[page].path === path) {
+            loadPage(page);
+        }
+    }
+});
+
 function loadPage(page, pushHistory=true) {
     console.log("Loading the page:", page);
     if(pushHistory) {
@@ -37,7 +46,7 @@ function loadPage(page, pushHistory=true) {
 
 function historyPush(page) {
     try {
-        window.history.pushState({}, page, PAGES[page].path);
+        window.history.pushState({page: page}, page, PAGES[page].path);
     } catch(e) {
         if (e.name === "SecurityError") {
             console.log("Can't push to history:", e);
