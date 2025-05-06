@@ -17,7 +17,7 @@ const INTRO_HTML = `
 PAGES = {
     "Plants": {
         html: "<p>Let's talk about my plants!</p><p>I have 3 columbines, a yard I'm working on, some young Japanese black pines, and more...</p>",
-        path: "plants"
+        path: "plants.html"
     },
     "Index": {
         html: INTRO_HTML,
