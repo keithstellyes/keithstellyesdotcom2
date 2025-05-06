@@ -17,7 +17,7 @@ const INTRO_HTML = `
 PAGES = {
     "Plants": {
         html: "<p>Let's talk about my plants!</p><p>I have 3 columbines, a yard I'm working on, some young Japanese black pines, and more...</p>",
-        path: "plants.html"
+        path: "/plants.html"
     },
     "Index": {
         html: INTRO_HTML,
@@ -27,11 +27,7 @@ PAGES = {
 
 window.addEventListener('popstate', (event) =>  {
     const path = event.target.location.pathname;
-    for(const page of Object.keys(PAGES)) {
-        if(PAGES[page].path === path) {
-            loadPage(page);
-        }
-    }
+    windowOnLoad(path);
 });
 
 function loadPage(page, pushHistory=true) {
@@ -57,7 +53,14 @@ function historyPush(page) {
     }
 }
 
-function windowOnLoad() {
+function windowOnLoad(path) {
+    for(const page of Object.keys(PAGES)) {
+        if(PAGES[page].path === path) {
+            loadPage(page);
+            return;
+        }
+    }
+
     if (window.location.pathname.endsWith('index.html')) {
         loadPage("Index", false);
     } else {
@@ -68,5 +71,5 @@ function windowOnLoad() {
 
 window.onload = () => {
     console.log('path:', window.location.pathname);
-    windowOnLoad();
+    windowOnLoad(window.location.pathname);
 }
