@@ -3,7 +3,7 @@ return `
     <div>
     <button onclick="${onclick}">
         ${window.SVG[svgName]}
-        ${text}
+        <p>${text}</p>
     </button>
     </div>`
 }
