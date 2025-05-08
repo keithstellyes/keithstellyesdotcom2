@@ -14,6 +14,6 @@ template = env.get_template('index.jinja')
 
 html = template.render(GLOBALS=GLOBALS)
 
-for fn in ('index.html', 'plants.html'):
+for fn in ('index.html', 'plants.html', 'tech.html'):
     with open(fn, 'w') as f:
         f.write(html)

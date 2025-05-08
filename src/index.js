@@ -10,7 +10,7 @@ return `
 
 const INTRO_HTML = `
 <div class="svgButtonCollection">
-    ${svgButton("computer", "Technical interests!", "alert('...')")}
+    ${svgButton("computer", "Technical interests!", "loadPage('Tech')")}
     ${svgButton("seedling", "How are my plants doing?", "loadPage('Plants')")}
 </div>
 `;
@@ -18,6 +18,10 @@ PAGES = {
     "Plants": {
         html: "<p>Let's talk about my plants!</p><p>I have 3 columbines, a yard I'm working on, some young Japanese black pines, and more...</p>",
         path: "/plants.html"
+    },
+    "Tech": {
+        html: "<p>I have lots of technical interests :) Coding from front-end to back to embedded and graphics!</p>",
+        path: "/tech.html"
     },
     "Index": {
         html: INTRO_HTML,
