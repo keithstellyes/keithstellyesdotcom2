@@ -24,13 +24,20 @@ const INTRO_HTML = `
     ${svgButton("seedling", "How are my plants doing?", "loadPage('Plants')")}
 </div>
 `;
+
+const TECH_HTML = `
+<p>I have lots of technical interests :) Coding from front-end to back to embedded and graphics!</p>
+<p>You should check out my GitHub! I have also contributed to Open-Source projects like RayLib</p>
+<p>This page itself is a hand-rolled SPA app, where when you load a new page, it just replaces what needs to be! I also set up
+browser history to make sure the browser back and history functionality work :)</p>
+`;
 PAGES = {
     "Plants": {
-        html: "<p>Let's talk about my plants!</p><p>I have 3 columbines, a yard I'm working on, some young Japanese black pines, and more...</p>",
+        html: "<p>Let's talk about my plants!</p><p>I have 3 mature columbines, several babies, many tomato plants from cherry varieties to roma!</p>",
         path: "/plants.html"
     },
     "Tech": {
-        html: "<p>I have lots of technical interests :) Coding from front-end to back to embedded and graphics!</p>",
+        html: TECH_HTML,
         path: "/tech.html"
     },
     "Index": {
