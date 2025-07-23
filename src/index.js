@@ -30,6 +30,10 @@ const TECH_HTML = `
 <p>You should check out my GitHub! I have also contributed to Open-Source projects like RayLib</p>
 <p>This page itself is a hand-rolled SPA app, where when you load a new page, it just replaces what needs to be! I also set up
 browser history to make sure the browser back and history functionality work :)</p>
+<p>My first project I like to show off is my "Game of Ur" project done in C++ with the open source 3D engine, Raylib (which I have contributed to!)</p>
+<img src="https://github.com/keithstellyes/ur/raw/main/screenshot.png"></img>
+<p>In this project, I implement what is believed to be the oldest known board game in the world. The rules aren't known with 100% confidence, so I had to do a lot of research!</p>
+<a href="https://github.com/keithstellyes/ur">View on GitHub</a>
 `;
 PAGES = {
     "Plants": {
